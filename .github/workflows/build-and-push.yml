@@ -37,11 +37,11 @@ jobs:
             type=raw,value=latest
             type=sha
 
+      # Intentionally large image used to simulate long image pulls.
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
           context: .
-          # Intentionally large image used to simulate long image pulls.
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
